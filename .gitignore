@@ -1,0 +1,25 @@
+# build-apk.sh writes the signed APK next to the repo; never commit it
+*.apk
+*.zip
+
+# Secrets and local data: never commit (portfolio export)
+.env
+*.env
+.env.*
+!.env.example
+!*.env.example
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.apk
+*.aab
+uploads/
+*.log

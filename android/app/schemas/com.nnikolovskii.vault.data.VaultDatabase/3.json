@@ -1,0 +1,147 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "49d910353ef0bfccf43203a37bcdb6b5",
+    "entities": [
+      {
+        "tableName": "vault_meta",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `vaultId` BLOB NOT NULL, `formatVersion` INTEGER NOT NULL, `kdfAlgorithm` TEXT NOT NULL, `kdfSalt` BLOB NOT NULL, `kdfMemoryKib` INTEGER NOT NULL, `kdfIterations` INTEGER NOT NULL, `kdfParallelism` INTEGER NOT NULL, `wrappedVaultKey` BLOB NOT NULL, `deviceKeyAlias` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `backupInfo` BLOB, `biometricWrap` BLOB, `passphraseInfo` BLOB, `settings` BLOB, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vaultId",
+            "columnName": "vaultId",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formatVersion",
+            "columnName": "formatVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kdfAlgorithm",
+            "columnName": "kdfAlgorithm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kdfSalt",
+            "columnName": "kdfSalt",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kdfMemoryKib",
+            "columnName": "kdfMemoryKib",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kdfIterations",
+            "columnName": "kdfIterations",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kdfParallelism",
+            "columnName": "kdfParallelism",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wrappedVaultKey",
+            "columnName": "wrappedVaultKey",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deviceKeyAlias",
+            "columnName": "deviceKeyAlias",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "backupInfo",
+            "columnName": "backupInfo",
+            "affinity": "BLOB"
+          },
+          {
+            "fieldPath": "biometricWrap",
+            "columnName": "biometricWrap",
+            "affinity": "BLOB"
+          },
+          {
+            "fieldPath": "passphraseInfo",
+            "columnName": "passphraseInfo",
+            "affinity": "BLOB"
+          },
+          {
+            "fieldPath": "settings",
+            "columnName": "settings",
+            "affinity": "BLOB"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `formatVersion` INTEGER NOT NULL, `summaryBlob` BLOB NOT NULL, `secretBlob` BLOB NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formatVersion",
+            "columnName": "formatVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "summaryBlob",
+            "columnName": "summaryBlob",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "secretBlob",
+            "columnName": "secretBlob",
+            "affinity": "BLOB",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '49d910353ef0bfccf43203a37bcdb6b5')"
+    ]
+  }
+}
